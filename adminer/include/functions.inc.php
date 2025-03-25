@@ -378,7 +378,7 @@ function convert_fields($columns, $fields, $select = array()) {
 * @param int number of seconds, 0 for session cookie, 2592000 - 30 days
 * @return bool
 */
-function cookie($name, $value, $lifetime = 2592000) {
+function cookiem($name, $value, $lifetime = 2592000) {
 	global $HTTPS;
 	return header(
 		"Set-Cookie: $name=" . urlencode($value)
@@ -415,7 +415,7 @@ function get_setting($key, $cookie = "adminer_settings") {
 * @return bool
 */
 function save_settings($settings, $cookie = "adminer_settings") {
-	return cookie($cookie, http_build_query($settings + get_settings($cookie)));
+	return cookiem($cookie, http_build_query($settings + get_settings($cookie)));
 }
 
 /** Restart stopped session

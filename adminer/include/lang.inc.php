@@ -102,7 +102,7 @@ function switch_lang() {
 }
 
 if (isset($_POST["lang"]) && verify_token()) { // $error not yet available
-	cookie("adminer_lang", $_POST["lang"]);
+	cookiem("adminer_lang", $_POST["lang"]);
 	$_SESSION["lang"] = $_POST["lang"]; // cookies may be disabled
 	$_SESSION["translations"] = array(); // used in compiled version
 	redirect(remove_from_uri());
@@ -110,7 +110,7 @@ if (isset($_POST["lang"]) && verify_token()) { // $error not yet available
 
 $LANG = "en";
 if (isset($langs[$_COOKIE["adminer_lang"]])) {
-	cookie("adminer_lang", $_COOKIE["adminer_lang"]);
+	cookiem("adminer_lang", $_COOKIE["adminer_lang"]);
 	$LANG = $_COOKIE["adminer_lang"];
 } elseif (isset($langs[$_SESSION["lang"]])) {
 	$LANG = $_SESSION["lang"];

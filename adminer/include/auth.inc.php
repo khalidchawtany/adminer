@@ -82,7 +82,7 @@ if ($auth) {
 		$key = implode("-", array_map('base64_encode', array($vendor, $server, $username, $db)));
 		$private = $adminer->permanentLogin(true);
 		$permanent[$key] = "$key:" . base64_encode($private ? encrypt_string($password, $private) : "");
-		cookie("adminer_permanent", implode(" ", $permanent));
+		cookiem("adminer_permanent", implode(" ", $permanent));
 	}
 	if (
 		count($_POST) == 1 // 1 - auth
@@ -120,7 +120,7 @@ function unset_permanent() {
 			unset($permanent[$key]);
 		}
 	}
-	cookie("adminer_permanent", implode(" ", $permanent));
+	cookiem("adminer_permanent", implode(" ", $permanent));
 }
 
 /** Render an error message and a login form
@@ -151,7 +151,7 @@ function auth_error($error) {
 		$error = lang('Session support must be enabled.');
 	}
 	$params = session_get_cookie_params();
-	cookie("adminer_key", ($_COOKIE["adminer_key"] ?: rand_string()), $params["lifetime"]);
+	cookiem("adminer_key", ($_COOKIE["adminer_key"] ?: rand_string()), $params["lifetime"]);
 	page_header(lang('Login'), $error, null);
 	echo "<form action='' method='post'>\n";
 	echo "<div>";
