@@ -359,7 +359,7 @@ ORDER BY ac.constraint_type, aic.column_position", $connection2) as $row
 		return $return;
 	}
 
-	function view($name) {
+	function viewm($name) {
 		$view = views_table("view_name, text");
 		$rows = get_rows('SELECT text "select" FROM ' . $view . ' WHERE view_name = ' . q($name));
 		return reset($rows);

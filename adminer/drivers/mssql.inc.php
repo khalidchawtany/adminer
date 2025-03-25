@@ -429,7 +429,7 @@ WHERE OBJECT_NAME(i.object_id) = " . q($table), $connection2) as $row
 		return $return;
 	}
 
-	function view($name) {
+	function viewm($name) {
 		return array("select" => preg_replace('~^(?:[^[]|\[[^]]*])*\s+AS\s+~isU', '', get_val("SELECT VIEW_DEFINITION FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = SCHEMA_NAME() AND TABLE_NAME = " . q($name))));
 	}
 
@@ -660,7 +660,7 @@ WHERE sys1.xtype = 'TR' AND sys2.name = " . q($table)) as $row
 	function create_sql($table, $auto_increment, $style) {
 		global $driver;
 		if (is_view(table_status1($table))) {
-			$view = view($table);
+			$view = viewm($table);
 			return "CREATE VIEW " . table($table) . " AS $view[select]";
 		}
 		$fields = array();

@@ -534,7 +534,7 @@ ORDER BY conkey, conname") as $row
 		return $return;
 	}
 
-	function view($name) {
+	function viewm($name) {
 		return array("select" => trim(get_val("SELECT pg_get_viewdef(" . get_val("SELECT oid FROM pg_class WHERE relnamespace = (SELECT oid FROM pg_namespace WHERE nspname = current_schema()) AND relname = " . q($name)) . ")")));
 	}
 
@@ -852,7 +852,7 @@ AND typelem = 0"
 
 		$status = table_status1($table);
 		if (is_view($status)) {
-			$view = view($table);
+			$view = viewm($table);
 			return rtrim("CREATE VIEW " . idf_escape($table) . " AS $view[select]", ";");
 		}
 		$fields = fields($table);

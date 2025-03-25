@@ -38,7 +38,7 @@ if ($_POST && !$error) {
 }
 
 if (!$_POST && $TABLE != "") {
-	$row = view($TABLE);
+	$row = viewm($TABLE);
 	$row["name"] = $TABLE;
 	$row["materialized"] = ($orig_type != "VIEW");
 	if (!$error) {

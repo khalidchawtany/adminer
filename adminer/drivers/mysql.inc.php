@@ -704,7 +704,7 @@ if (!defined('Adminer\DRIVER')) {
 	* @param string
 	* @return array{select:string}
 	*/
-	function view($name) {
+	function viewm($name) {
 		return array("select" => preg_replace('~^(?:[^`]|`[^`]*`)*\s+AS\s+~isU', '', get_val("SHOW CREATE VIEW " . table($name), 1)));
 	}
 
@@ -907,7 +907,7 @@ if (!defined('Adminer\DRIVER')) {
 		if (!$rename || queries("RENAME TABLE " . implode(", ", $rename))) {
 			$definitions = array();
 			foreach ($views as $table) {
-				$definitions[table($table)] = view($table);
+				$definitions[table($table)] = viewm($table);
 			}
 			$connection->select_db($target);
 			$db = idf_escape(DB);
@@ -948,7 +948,7 @@ if (!defined('Adminer\DRIVER')) {
 		}
 		foreach ($views as $table) {
 			$name = ($target == DB ? table("copy_$table") : idf_escape($target) . "." . table($table));
-			$view = view($table);
+			$view = viewm($table);
 			if (
 				($_POST["overwrite"] && !queries("DROP VIEW IF EXISTS $name"))
 				|| !queries("CREATE VIEW $name AS $view[select]") //! USE to avoid db.table

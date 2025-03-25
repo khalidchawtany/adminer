@@ -347,7 +347,7 @@ if (isset($_GET["sqlite"])) {
 		return $return;
 	}
 
-	function view($name) {
+	function viewm($name) {
 		return array("select" => preg_replace('~^(?:[^`"[]+|`[^`]*`|"[^"]*")* AS\s+~iU', '', get_val("SELECT sql FROM sqlite_master WHERE type = 'view' AND name = " . q($name)))); //! identifiers may be inside []
 	}
 
