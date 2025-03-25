@@ -91,7 +91,7 @@ if ($auth) {
 		|| $_GET["username"] !== $username // "0" == "00"
 		|| DB != $db
 	) {
-		redirect(auth_url($vendor, $server, $username, $db));
+		redirectm(auth_url($vendor, $server, $username, $db));
 	}
 
 } elseif ($_POST["logout"] && (!$has_token || verify_token())) {
@@ -99,7 +99,7 @@ if ($auth) {
 		set_session($key, null);
 	}
 	unset_permanent();
-	redirect(substr(preg_replace('~\b(username|db|ns)=[^&]*&~', '', ME), 0, -1), lang('Logout successful.') . ' ' . lang('Thanks for using Adminer, consider <a href="https://www.adminer.org/en/donation/">donating</a>.'));
+	redirectm(substr(preg_replace('~\b(username|db|ns)=[^&]*&~', '', ME), 0, -1), lang('Logout successful.') . ' ' . lang('Thanks for using Adminer, consider <a href="https://www.adminer.org/en/donation/">donating</a>.'));
 
 } elseif ($permanent && !$_SESSION["pwds"]) {
 	session_regenerate_id();

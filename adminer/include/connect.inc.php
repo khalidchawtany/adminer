@@ -105,7 +105,7 @@ if (
 if (support("scheme")) {
 	if (DB != "" && $_GET["ns"] !== "") {
 		if (!isset($_GET["ns"])) {
-			redirect(preg_replace('~ns=[^&]*&~', '', ME) . "ns=" . get_schema());
+			redirectm(preg_replace('~ns=[^&]*&~', '', ME) . "ns=" . get_schema());
 		}
 		if (!set_schema($_GET["ns"])) {
 			header("HTTP/1.1 404 Not Found");

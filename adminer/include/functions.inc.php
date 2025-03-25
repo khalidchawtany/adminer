@@ -496,7 +496,7 @@ function is_ajax() {
 * @param string
 * @return never
 */
-function redirect($location, $message = null) {
+function redirectm($location, $message = null) {
 	if ($message !== null) {
 		restart_session();
 		$_SESSION["messages"][preg_replace('~^[^?]*~', '', ($location !== null ? $location : $_SERVER["REQUEST_URI"]))][] = $message;
@@ -536,7 +536,7 @@ function query_redirect($query, $location, $message, $redirect = true, $execute 
 		return false;
 	}
 	if ($redirect) {
-		redirect($location, $message . $sql);
+		redirectm($location, $message . $sql);
 	}
 	return true;
 }

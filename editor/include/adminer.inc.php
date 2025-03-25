@@ -449,7 +449,7 @@ ORDER BY ORDINAL_POSITION", null, "") as $row
 				}
 			}
 			cookiem("adminer_email", $_POST["email_from"]);
-			redirect(remove_from_uri(), lang('%d e-mail(s) have been sent.', $sent));
+			redirectm(remove_from_uri(), lang('%d e-mail(s) have been sent.', $sent));
 		}
 		return false;
 	}

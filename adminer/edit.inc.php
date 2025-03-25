@@ -41,7 +41,7 @@ if ($_POST && !$error && !isset($_GET["select"])) {
 
 		if ($update) {
 			if (!$set) {
-				redirect($location);
+				redirectm($location);
 			}
 			queries_redirect(
 				$location,
