@@ -253,7 +253,7 @@ function enum_input($type, $attrs, $field, $value, $empty = null) {
 * @param bool
 * @return null
 */
-function input($field, $value, $function, $autofocus = false) {
+function inputm($field, $value, $function, $autofocus = false) {
 	global $driver, $adminer;
 	$name = h(bracket_escape($field["field"]));
 	echo "<td class='function'>";
@@ -497,7 +497,7 @@ function edit_form($table, $fields, $row, $update) {
 			if ($autofocus !== false) {
 				$autofocus = ($field["auto_increment"] || $function == "now" || $function == "uuid" ? null : true); // null - don't autofocus this input but check the next one
 			}
-			input($field, $value, $function, $autofocus);
+			inputm($field, $value, $function, $autofocus);
 			if ($autofocus) {
 				$autofocus = false;
 			}

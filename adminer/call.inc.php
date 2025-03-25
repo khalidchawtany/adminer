@@ -77,7 +77,7 @@ if ($in) {
 				$value = implode(",", $value);
 			}
 		}
-		input($field, $value, idx($_POST["function"], $name, "")); // param name can be empty
+		inputm($field, $value, idx($_POST["function"], $name, "")); // param name can be empty
 		echo "\n";
 	}
 	echo "</table>\n";
