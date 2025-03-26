@@ -207,8 +207,11 @@ function page_footer($missing = "") {
 	if ($missing != "auth") {
 		?>
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <p class="logout">
 <span><?php echo h($_GET["username"]) . "\n"; ?></span>
+
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <input type="submit" name="logout" value="<?php echo lang('Logout'); ?>" id="logout">
 <?php echo input_token(); ?>
 </p>

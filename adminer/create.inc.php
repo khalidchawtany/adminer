@@ -182,6 +182,7 @@ foreach ($engines as $engine) {
 ?>
 
 <form action="" method="post" id="form">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <p>
 <?php
 if (support("columns") || $TABLE == "") {

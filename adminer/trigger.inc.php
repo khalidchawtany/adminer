@@ -35,6 +35,7 @@ page_header(($name != "" ? lang('Alter trigger') . ": " . h($name) : lang('Creat
 ?>
 
 <form action="" method="post" id="form">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <table class="layout">
 <tr><th><?php echo lang('Time'); ?><td><?php echo html_select("Timing", $trigger_options["Timing"], $row["Timing"], "triggerChange(/^" . preg_quote($TABLE, "/") . "_[ba][iud]$/, '" . js_escape($TABLE) . "', this.form);"); ?>
 <tr><th><?php echo lang('Event'); ?><td><?php echo html_select("Event", $trigger_options["Event"], $row["Event"], "this.form['Timing'].onchange();"); ?>

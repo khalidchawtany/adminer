@@ -154,6 +154,7 @@ function auth_error($error) {
 	cookiem("adminer_key", ($_COOKIE["adminer_key"] ?: rand_string()), $params["lifetime"]);
 	page_header(lang('Login'), $error, null);
 	echo "<form action='' method='post'>\n";
+    echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 	echo "<div>";
 	if (hidden_fields($_POST, array("auth"))) { // expired session
 		echo "<p class='message'>" . lang('The action will be performed after successful login with the same credentials.') . "\n";

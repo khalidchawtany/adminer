@@ -57,6 +57,7 @@ if (
 			$scheme = support("scheme");
 			$collations = collations();
 			echo "<form action='' method='post'>\n";
+            echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 			echo "<table class='checkable odds'>\n";
 			echo script("mixin(qsl('table'), {onclick: tableClick, ondblclick: partialArg(tableClick, true)});");
 			echo "<thead><tr>"

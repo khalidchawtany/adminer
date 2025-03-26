@@ -256,6 +256,7 @@ if (!$columns && support("table")) {
 	echo "<p class='error'>" . lang('Unable to select the table') . ($fields ? "." : ": " . error()) . "\n";
 } else {
 	echo "<form action='' id='form'>\n";
+    echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 	echo "<div style='display: none;'>";
 	hidden_fields_get();
 	echo (DB != "" ? input_hidden("db", DB) . (isset($_GET["ns"]) ? input_hidden("ns", $_GET["ns"]) : "") : ""); // not used in Editor
@@ -308,6 +309,9 @@ if (!$columns && support("table")) {
 		}
 		$email_fields = array();
 		echo "<form action='' method='post' enctype='multipart/form-data'>\n";
+
+		echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
+
 		$rows = array();
 		while ($row = $result->fetch_assoc()) {
 			if ($page && JUSH == "oracle") {

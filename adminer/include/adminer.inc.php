@@ -124,6 +124,8 @@ class Adminer {
 	function loginForm() {
 		global $drivers;
 		echo "<table class='layout'>\n";
+
+		echo $this->loginFormField('hidden', '', '<input type="hidden" name="_token" value="' . csrf_token() . '" autocomplete="current-password">');
 		// this is matched by compile.php
 		echo $this->loginFormField('driver', '<tr><th>' . lang('System') . '<td>', html_select("auth[driver]", $drivers, DRIVER, "loginDriver(this);"));
 		echo $this->loginFormField('server', '<tr><th>' . lang('Server') . '<td>', '<input name="auth[server]" value="' . h(SERVER) . '" title="hostname[:port]" placeholder="localhost" autocapitalize="off">');
@@ -1098,6 +1100,7 @@ class Adminer {
 			? html_select("db", array("" => "") + $databases, DB) . $db_events
 			: "<input name='db' value='" . h(DB) . "' autocapitalize='off' size='19'>\n"
 		);
+		echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 		echo "<input type='submit' value='" . lang('Use') . "'" . ($databases ? " class='hidden'" : "") . ">\n";
 		if (support("scheme")) {
 			if ($missing != "db" && DB != "" && $connection->select_db(DB)) {

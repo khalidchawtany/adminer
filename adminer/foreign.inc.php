@@ -55,6 +55,7 @@ if ($_POST) {
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <?php
 $source = array_keys(fields($TABLE)); //! no text and blob
 if ($row["db"] != "") {

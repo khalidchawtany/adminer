@@ -158,6 +158,7 @@ if (!$error && $_POST) {
 										$orgtables = select($result, $connection2, array(), $limit);
 										if (!$_POST["only_errors"]) {
 											echo "<form action='' method='post'>\n";
+                                            echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 											$num_rows = $result->num_rows;
 											echo "<p class='sql-footer'>" . ($num_rows ? ($limit && $num_rows > $limit ? lang('%d / ', $limit) : "") . lang('%d row(s)', $num_rows) : "");
 											echo $time;
@@ -221,6 +222,7 @@ if (!$error && $_POST) {
 ?>
 
 <form action="" method="post" enctype="multipart/form-data" id="form">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <?php
 $execute = "<input type='submit' value='" . lang('Execute') . "' title='Ctrl+Enter'>";
 if (!isset($_GET["import"])) {

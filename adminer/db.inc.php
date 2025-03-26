@@ -62,6 +62,7 @@ if ($adminer->homepage()) {
 			echo "<p class='message'>" . lang('No tables.') . "\n";
 		} else {
 			echo "<form action='' method='post'>\n";
+            echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 			if (support("table")) {
 				echo "<fieldset><legend>" . lang('Search data in tables') . " <span id='selected2'></span></legend><div>";
 				echo "<input type='search' name='query' value='" . h($_POST["query"]) . "'>";

@@ -5,6 +5,7 @@ page_header(lang('Server'), "", false);
 
 if ($adminer->homepage()) {
 	echo "<form action='' method='post'>\n";
+    echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 	echo "<p>" . lang('Search data in tables') . ": <input type='search' name='query' value='" . h($_POST["query"]) . "'> <input type='submit' value='" . lang('Search') . "'>\n";
 	if ($_POST["query"] != "") {
 		search_tables();

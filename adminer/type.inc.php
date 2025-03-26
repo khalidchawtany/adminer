@@ -21,6 +21,7 @@ if (!$row) {
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <p>
 <?php
 if ($TYPE != "") {

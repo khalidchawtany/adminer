@@ -13,6 +13,7 @@ if (!$result) {
 }
 
 echo "<form action=''><p>\n";
+echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 hidden_fields_get();
 echo input_hidden("db", DB);
 echo ($grant ? "" : input_hidden("grant"));

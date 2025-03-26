@@ -98,6 +98,7 @@ function switch_lang() {
 	echo lang('Language') . ": " . html_select("lang", $langs, $LANG, "this.form.submit();");
 	echo " <input type='submit' value='" . lang('Use') . "' class='hidden'>\n";
 	echo input_token(get_token()); // $token may be empty in auth.inc.php
+    echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 	echo "</div>\n</form>\n";
 }
 

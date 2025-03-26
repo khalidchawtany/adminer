@@ -446,6 +446,7 @@ function edit_form($table, $fields, $row, $update) {
 		return;
 	}
 	echo "<form action='' method='post' enctype='multipart/form-data' id='form'>\n";
+    echo '<input type="hidden" name="_token" value="' . csrf_token() . '">';
 	if (!$fields) {
 		echo "<p class='error'>" . lang('You have no privileges to update this table.') . "\n";
 	} else {

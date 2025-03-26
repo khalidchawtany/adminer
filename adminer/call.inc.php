@@ -64,6 +64,7 @@ if (!$error && $_POST) {
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <?php
 if ($in) {
 	echo "<table class='layout'>\n";

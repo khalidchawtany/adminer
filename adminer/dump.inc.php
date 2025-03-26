@@ -147,6 +147,7 @@ page_header(lang('Export'), $error, ($_GET["export"] != "" ? array("table" => $_
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <table class="layout">
 <?php
 $db_style = array('', 'USE', 'DROP+CREATE', 'CREATE');

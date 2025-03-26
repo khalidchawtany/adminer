@@ -50,6 +50,7 @@ page_header(($TABLE != "" ? lang('Alter view') : lang('Create view')), $error, a
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <p><?php echo lang('Name'); ?>: <input name="name" value="<?php echo h($row["name"]); ?>" data-maxlength="64" autocapitalize="off">
 <?php echo (support("materializedview") ? " " . checkbox("materialized", 1, $row["materialized"], lang('Materialized view')) : ""); ?>
 <p><?php textarea("select", $row["select"]); ?>

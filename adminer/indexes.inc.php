@@ -101,6 +101,7 @@ $show_options = ($_POST ? $_POST["options"] : get_setting("index_options"));
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <div class="scrollable">
 <table class="nowrap">
 <thead><tr>

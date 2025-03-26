@@ -134,6 +134,7 @@ if ($row) {
 
 ?>
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <table class="layout">
 <tr><th><?php echo lang('Server'); ?><td><input name="host" data-maxlength="60" value="<?php echo h($row["host"]); ?>" autocapitalize="off">
 <tr><th><?php echo lang('Username'); ?><td><input name="user" data-maxlength="80" value="<?php echo h($row["user"]); ?>" autocapitalize="off">

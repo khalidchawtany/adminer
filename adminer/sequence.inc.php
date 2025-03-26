@@ -26,6 +26,7 @@ if (!$row) {
 ?>
 
 <form action="" method="post">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <p><input name="name" value="<?php echo h($row["name"]); ?>" autocapitalize="off">
 <input type="submit" value="<?php echo lang('Save'); ?>">
 <?php
